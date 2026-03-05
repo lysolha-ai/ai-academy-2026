@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from typing import Any, Dict
 
 from ai_pm.config import load_config
@@ -36,7 +37,7 @@ def main() -> None:
             summary["ok"] = False
             # Enforce fail-closed behavior: do not generate artifacts when policy hook fails.
             print(json.dumps(summary, ensure_ascii=False, indent=2))
-            return
+            sys.exit(2)
 
         for name, artifact in artifacts.items():
             try:
