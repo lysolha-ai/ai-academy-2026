@@ -5,7 +5,7 @@
 **Purpose:** Dynamic governance control for sprint execution.  
 **Master Source:** `governance/operating-model/go-conditions-tracker.md`
 
-**Current Gate Summary:** Scale Blockers Closed: 0/6 | In Progress: 4 | Open: 2 | ROI Gate: IN_PROGRESS | Scale Not Eligible  
+**Current Gate Summary:** Scale Blockers Closed: 0/6 | In Progress: 5 | Open: 1 | ROI Gate: IN_PROGRESS | Scale Not Eligible  
 **Scale Posture:** Controlled Build  
 **Exposure Status:** No Production or Domain Expansion Exposure  
 **Scale Eligibility:** Not Eligible

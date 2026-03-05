@@ -1,0 +1,47 @@
+Exercise 3 Validation and Commit Evidence
+Date: 2026-03-05
+Project: eurohealth-ai-pm
+
+1) Final Artifact Run
+Command: python3 eurohealth-ai-pm/src/ai_pm_backbone.py --overwrite
+Result: PASS
+Structured Output:
+{
+  "ok": true,
+  "results": {
+    "sprint_board": {"status": "written", "path": "project/sprint_board.md"},
+    "standup_template": {"status": "written", "path": "project/standup_template.md"},
+    "stakeholder_update": {"status": "written", "path": "project/stakeholder_update.md"},
+    "scope_tracker": {"status": "written", "path": "project/scope_tracker.md"}
+  },
+  "policy_hook": {
+    "ok": true,
+    "policy_file": "governance/policies/pii-protection.yaml",
+    "required_rule_id": "block-salary-data",
+    "rule_present": true
+  }
+}
+
+2) Hardcoded Secrets / Real Data Check
+Scan scope: eurohealth-ai-pm/
+Patterns checked: OpenAI keys (sk-...), Google API keys (AIza...), private key headers, generic api_key/secret assignments
+Result: No matches found in scanned project scope.
+Limitation: Pattern scan verifies absence of obvious embedded secrets and does not replace enterprise DLP tooling.
+
+3) .env Git Ignore Check
+Root .gitignore entries verified:
+- .env
+- **/.env
+Result: PASS
+
+4) Basic Error Handling Check
+try/except verified in:
+- eurohealth-ai-pm/src/ai_pm_backbone.py
+- eurohealth-ai-pm/src/ai_pm/config.py
+- eurohealth-ai-pm/src/ai_pm/policy_hook.py
+Result: PASS
+
+5) Preflight Validation
+Command: bash eurohealth-ai-pm/scripts/preflight.sh
+Result: PASS
+Checks passed: env ignore rules, secret scan, governance hook, error handling patterns, syntax, CLI smoke run.
